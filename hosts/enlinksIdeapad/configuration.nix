@@ -30,21 +30,13 @@
   #};
 
   networking = {
-    hostName = "Enlinks-Thinkpad"; # Define your hostname.
+    hostName = "Enlinks-Ideapad"; # Define your hostname.
     #enableIPv6 = false; # Not sure if needed https://github.com/NixOS/nixpkgs/issues/87802
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
     firewall = {
       enable = true; # enable and open ports in the firewall.
       #allowedTCPPorts = [ ... ];
       #allowedUDPPorts = [ ... ];
-    };
-  };
-
-  security = {
-    tpm2 = {
-      enable = true; # Enable tpm2, untested if it works on this PC
-      pkcs11.enable = true;
-      tctiEnvironment.enable = true;
     };
   };
 

@@ -17,6 +17,13 @@
     in
     {
       nixosConfigurations = {
+        enlinksIdeapad = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/enlinksIdeapad/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
         enlinksThinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [
