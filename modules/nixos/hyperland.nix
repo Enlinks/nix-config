@@ -1,5 +1,3 @@
-{ config, lib, pkgs, ... }:
-
 {
   services = {
     xserver = {
@@ -66,6 +64,4 @@
       NIXOS_OZONE_WL = "1";
     };
   };
-
 }
-

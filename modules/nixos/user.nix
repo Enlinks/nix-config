@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.superUser;
@@ -19,4 +19,3 @@ in
     };
   };
 }
-

@@ -8,16 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos/boot.nix
       ../../modules/nixos/default.nix
-      ../../modules/nixos/homeManager.nix
       #../../modules/nixos/hyperland.nix
       ../../modules/nixos/plasma.nix
-      ../../modules/nixos/security.nix
-      ../../modules/nixos/services.nix
-      ../../modules/nixos/sound.nix
-      ../../modules/nixos/systemd.nix
-      ../../modules/nixos/user.nix
       inputs.home-manager.nixosModules.default
     ];
 

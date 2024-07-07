@@ -1,6 +1,14 @@
-{ config, lib, pkgs, ... }:
-
 {
+  imports =
+    [
+      ./boot.nix
+      ./homeManager.nix
+      ./security.nix
+      ./services.nix
+      ./sound.nix
+      ./systemd.nix
+      ./user.nix
+    ];
   # Set your time zone.
   time.timeZone = "America/New_york";
 

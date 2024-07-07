@@ -1,5 +1,3 @@
-{ config, lib, pkgs, ... }:
-
 {
   # Enable KDE Plasma Desktop Environment
   services = {

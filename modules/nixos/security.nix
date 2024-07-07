@@ -1,4 +1,6 @@
-security = {
-  polkit.enable = true; # Enable Polkit
-  rtkit.enable = true; # Needed for sound
-};
+{
+  security = {
+    polkit.enable = true; # Enable Polkit
+    rtkit.enable = true; # Needed for sound
+  };
+}
