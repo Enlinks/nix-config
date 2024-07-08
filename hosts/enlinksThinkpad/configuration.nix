@@ -33,6 +33,13 @@
     };
   };
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vpl-gpu-rt # or intel-media-sdk for QSV
+    ];
+  };
+
   # Allow unfree packages
   # nixpkgs.config.allowUnfree = true;
 
@@ -58,6 +65,7 @@
       wget
       zip
       dmidecode
+      tpm2-tools
 
       kate # Terminal
       
