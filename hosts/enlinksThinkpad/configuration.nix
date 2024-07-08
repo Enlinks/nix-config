@@ -14,13 +14,6 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  #boot = {
-    #initrd.kernelModules = [ "amdgpu" ];
-    #kernelPackages = pkgs.linuxPackages_6_1;
-    #kernelParams = [ "radeon.cik_support=0" "amdgpu.cik_support=1" "amdgpu.dc=0" ];
-    #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" "amdgpu.dc=0" ];
-  #};
-
   networking = {
     hostName = "Enlinks-Thinkpad"; # Define your hostname.
     #enableIPv6 = false; # Not sure if needed https://github.com/NixOS/nixpkgs/issues/87802

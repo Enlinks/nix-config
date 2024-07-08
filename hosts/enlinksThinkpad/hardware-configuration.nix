@@ -16,11 +16,13 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8bdaa071-c858-43fc-9cb2-c355434198ed";
       fsType = "ext4";
+      options = [ "noatime" "nodiratime" "discard" ];
     };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/02D4-FC96";
       fsType = "vfat";
+      options = [ "discard" ];
     };
 
   swapDevices = [ {

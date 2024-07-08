@@ -14,12 +14,16 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  #boot = {
-    #initrd.kernelModules = [ "amdgpu" ];
+  boot = {
+    #initrd.kernelModules = [ "amdgpu" ];   Testing things to try and enable amdgpu driver instead of radeon
     #kernelPackages = pkgs.linuxPackages_6_1;
-    #kernelParams = [ "radeon.cik_support=0" "amdgpu.cik_support=1" "amdgpu.dc=0" ];
-    #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" "amdgpu.dc=0" ];
-  #};
+    #kernelParams = [ "iommu=pt" "iommu=soft" ];
+    #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" "amdgpu.dc=0" ]; "ivrs_ioapic[32]=00:14.0"
+    # for Southern Islands (SI i.e. GCN 1) cards
+    #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
+    # for Sea Islands (CIK i.e. GCN 2) cards "amdgpu.modeset=1" "amdgpu.dpm=1"
+    #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" "radeon.cik_support=0" "amdgpu.cik_support=1" "amdgpu.dc=1" ];
+  };
 
   networking = {
     hostName = "Enlinks-Ideapad"; # Define your hostname.
@@ -33,7 +37,9 @@
   };
 
   # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfree = true;
+
+  #services.xserver.videoDrivers = [ "modesetting" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
