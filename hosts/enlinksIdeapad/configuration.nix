@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ../../modules/nixos/default.nix
       #../../modules/nixos/hyperland.nix
-      ../../modules/nixos/plasma.nix
+      ../../modules/nixos/plasmax11.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -24,6 +24,16 @@
     # for Sea Islands (CIK i.e. GCN 2) cards "amdgpu.modeset=1" "amdgpu.dpm=1"
     #kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" "radeon.cik_support=0" "amdgpu.cik_support=1" "amdgpu.dc=1" ];
   };
+
+  environment.systemPackages = [
+    (pkgs.firefox.overrideAttrs (old: {
+      buildCommand =
+        old.buildCommand
+        + ''
+          substituteInPlace $out/bin/firefox --replace "exec -a" "MOZ_ENABLE_WAYLAND=0 exec -a"
+        '';
+    }))
+  ];
 
   networking = {
     hostName = "Enlinks-Ideapad"; # Define your hostname.
